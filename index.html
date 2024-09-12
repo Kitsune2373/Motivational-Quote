@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Quotes for Humaira</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('poto.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            text-align: center;
+        }
+        .quote-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            color: hwb(138 0% 0%);
+            margin-bottom: 10px;
+        }
+        .quote {
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #ecf0f1;
+            font-weight: bold;
+        }
+        .language {
+            font-size: 18px;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+        button {
+            background-color: hsl(194, 100%, 49%);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #00c6f8f8;
+        }
+        audio {
+            display: none; /* Hide audio controls */
+        }
+    </style>
+</head>
+<body>
+    <div class="quote-box">
+        <h1>Motivational Quotes</h1>
+        <div class="quote" id="quote-en"></div>
+        <div class="language" id="quote-id"></div>
+        <button id="start-btn">Get Motivational Quote</button>
+        <audio id="background-music" loop>
+            <source src="musik.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        const quotes = [
+            // English Quotes
+            "You’re doing amazing, keep going!",
+            "Every day is a new opportunity!",
+            "Your hard work will pay off, stay positive!",
+            "Keep believing in yourself, you’ve got this!",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+            "Believe you can and you’re halfway there.",
+            "The only way to do great work is to love what you do.",
+            "Don’t watch the clock; do what it does. Keep going.",
+            "The future belongs to those who believe in the beauty of their dreams.",
+            "It does not matter how slowly you go as long as you do not stop.",
+            "Success usually comes to those who are too busy to be looking for it.",
+            "The best way to predict the future is to create it.",
+            "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "The harder you work for something, the greater you’ll feel when you achieve it.",
+            "Dream it. Believe it. Build it.",
+
+            // Indonesian Quotes
+            "Kamu sudah luar biasa, teruslah berjuang!",
+            "Setiap hari adalah kesempatan baru!",
+            "Kerja kerasmu akan membuahkan hasil, tetaplah positif!",
+            "Teruslah percaya pada dirimu sendiri, kamu pasti bisa!",
+            "Kesuksesan bukanlah akhir, kegagalan bukanlah fatal: Yang penting adalah keberanian untuk terus melangkah.",
+            "Percayalah kamu bisa, dan kamu sudah setengah jalan.",
+            "Satu-satunya cara untuk melakukan pekerjaan hebat adalah dengan mencintai apa yang kamu lakukan.",
+            "Jangan hanya melihat jam; lakukan apa yang dilakukan oleh jam. Teruslah maju.",
+            "Masa depan adalah milik mereka yang percaya pada keindahan impian mereka.",
+            "Tidak masalah seberapa lambat kamu bergerak selama kamu tidak berhenti.",
+            "Kesuksesan biasanya datang kepada mereka yang terlalu sibuk mencarinya.",
+            "Cara terbaik untuk meramalkan masa depan adalah dengan menciptakannya.",
+            "Jangan dipengaruhi oleh ketakutan di pikiranmu. Ikuti impian di hatimu.",
+            "Satu-satunya batasan untuk realisasi kita di masa depan adalah keraguan kita hari ini.",
+            "Semakin keras kamu bekerja untuk sesuatu, semakin besar kepuasanmu saat mencapainya.",
+            "Mimpikan. Percayai. Bangunlah."
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * (quotes.length / 2));
+            document.getElementById('quote-en').innerText = quotes[randomIndex];
+            document.getElementById('quote-id').innerText = quotes[randomIndex + (quotes.length / 2)];
+        }
+
+        document.getElementById('start-btn').addEventListener('click', () => {
+            const audio = document.getElementById('background-music');
+            audio.play().catch(error => {
+                console.log('Autoplay prevented. Please enable sound manually.');
+            });
+            generateQuote();
+        });
+    </script>
+</body>
+</html>
